@@ -1,15 +1,31 @@
-<h1>What it do</h1>
-<p>MY APP</p>
+<h1>Welcome to Crypto Currency App</h1>
 
-<br/><br/>
-<% @coins %>
-
-<% for x in @coins %>
-    <% for coin in @my_coins %>
-        <% if coin == x["symbol"] %>
-            <%= x["name"] %>: <% x["price_usd"] %> <br/>
-            Rank: <%= x["rank"] %><br/><br/>
+    <br/><br/>
+   <table class="table table-hover table-striped table-bordered info">
+     <thead>  
+      <tr>
+         <th>Rank</th>
+         <th>Currency Type</th>
+      </tr>
+    </thead>
+         
+ 
+    <table class="table table-hover table-striped table-bordered info">
+        <tbody> 
+        
+                <% @coins %>
+                <% for x in @coins %>
+                <% for coin in @my_coins %>
+                    <% if coin == x["symbol"] %>
+                    <tr>
+                        <td>Rank: <%= x["rank"] %></td>
+                         <td><%= x["name"] %>: $<%= x["price_usd"] %></td>
+                    <% end %>
+                    </tr>
+             
+            <% end %>
         <% end %>
-    <% end %>
-<% end %>
-            
+        </tr>    
+     </tbody>
+ </table>
+<br/>
